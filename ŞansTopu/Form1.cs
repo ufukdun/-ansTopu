@@ -32,42 +32,39 @@ namespace ŞansTopu
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            
-            if (turSayisi %10==0)
+
+            if (turSayisi % 10 == 0)
             {
                 timer1.Stop();
             }
             else
             {
                 Sayilar.Clear();
-            }
-            if(turSayisi>=20)
-            {
-                timer1.Interval = 250;
-            }
-            while (sayac < 6)
-            {
-                rasgeleSayi = rnd.Next(1, 50);
-                if (!Sayilar.Contains(rasgeleSayi))
+
+                while (sayac < 6)
                 {
-                    Sayilar.Add(rasgeleSayi);
-                    sayac++;
+                    rasgeleSayi = rnd.Next(1, 50);
+                    if (!Sayilar.Contains(rasgeleSayi))
+                    {
+                        Sayilar.Add(rasgeleSayi);
+                        sayac++;
 
+                    }
                 }
+
+                Sayilar.Sort();
+
+                label1.Text = Sayilar[0].ToString();
+                label2.Text = Sayilar[1].ToString();
+                label3.Text = Sayilar[2].ToString();
+                label4.Text = Sayilar[3].ToString();
+                label5.Text = Sayilar[4].ToString();
+                label6.Text = Sayilar[5].ToString();
+
+                sayac = 0;
+                turSayisi++;
             }
-
-            Sayilar.Sort();
-
-            label1.Text = Sayilar[0].ToString();
-            label2.Text = Sayilar[1].ToString();
-            label3.Text = Sayilar[2].ToString();
-            label4.Text = Sayilar[3].ToString();
-            label5.Text = Sayilar[4].ToString();
-            label6.Text = Sayilar[5].ToString();
-
-            sayac = 0;
-            turSayisi ++;
         }
     }
-    }
+}
 
